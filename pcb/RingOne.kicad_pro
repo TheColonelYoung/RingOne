@@ -385,8 +385,16 @@
   },
   "sheets": [
     [
-      "eea341ca-dd4d-423b-9c01-f17041706f09",
+      "719c3e2c-1df6-43d4-b1f1-aae4f17504e1",
       ""
+    ],
+    [
+      "e5e6c0c7-e030-4278-8229-db2a15d8a699",
+      "BTN_Denoise_BOOT"
+    ],
+    [
+      "0872716e-e83e-47d9-8188-a11e815c83a9",
+      "BTN_Denoise_WAKE"
     ]
   ],
   "text_variables": {}

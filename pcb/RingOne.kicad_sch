@@ -2926,7 +2926,7 @@
     (stroke (width 0.001) (type solid) (color 132 0 132 1))
     (fill (color 72 72 72 1.0000))
     (uuid d4a7e79c-9128-4fa4-80c8-5ed7650db9b6)
-    (property "Sheet name" "Battery_management" (id 0) (at 31.75 69.2141 0)
+    (property "Název listu" "Battery_management" (id 0) (at 31.75 69.2141 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheet file" "Battery_management.kicad_sch" (id 1) (at 31.75 94.4889 0)
@@ -2947,7 +2947,7 @@
     (stroke (width 0.001) (type solid) (color 132 0 132 1))
     (fill (color 72 72 72 1.0000))
     (uuid 855b09b7-a463-45e8-b433-54e6470ddee8)
-    (property "Sheet name" "Power_management" (id 0) (at 31.75 112.3941 0)
+    (property "Název listu" "Power_management" (id 0) (at 31.75 112.3941 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheet file" "Power_management.kicad_sch" (id 1) (at 31.75 133.8589 0)
@@ -2977,7 +2977,7 @@
     (stroke (width 0.001) (type solid) (color 132 0 132 1))
     (fill (color 72 72 72 1.0000))
     (uuid 7e460f47-501e-4cc4-99d9-14af220b67f3)
-    (property "Sheet name" "USB-C" (id 0) (at 31.75 27.3041 0)
+    (property "Název listu" "USB-C" (id 0) (at 31.75 27.3041 0)
       (effects (font (size 1.27 1.27)) (justify left bottom))
     )
     (property "Sheet file" "USB-C.kicad_sch" (id 1) (at 31.75 56.3889 0)
@@ -3500,6 +3500,9 @@
     (path "/855b09b7-a463-45e8-b433-54e6470ddee8/acb2985e-7700-4ab2-a74a-fbf074bf3a72"
       (reference "#PWR0191") (unit 1) (value "GND") (footprint "")
     )
+    (path "/855b09b7-a463-45e8-b433-54e6470ddee8/d165581f-06a2-4f46-8a0b-d82d675b1cc9"
+      (reference "#PWR0196") (unit 1) (value "VCC") (footprint "")
+    )
     (path "/855b09b7-a463-45e8-b433-54e6470ddee8/4a390a2f-817f-4bdc-88bd-05b7fb11bf81"
       (reference "C21") (unit 1) (value "100nF") (footprint "Capacitor_SMD:C_0603_1608Metric")
     )
@@ -3544,6 +3547,9 @@
     )
     (path "/855b09b7-a463-45e8-b433-54e6470ddee8/ce6aae05-efb3-45a4-a482-5833436276c6"
       (reference "R19") (unit 1) (value "10k") (footprint "Resistor_SMD:R_0603_1608Metric")
+    )
+    (path "/855b09b7-a463-45e8-b433-54e6470ddee8/c7817bbe-aea3-42c2-997c-c1764887ef9c"
+      (reference "R20") (unit 1) (value "100k") (footprint "Resistor_SMD:R_0603_1608Metric")
     )
     (path "/855b09b7-a463-45e8-b433-54e6470ddee8/bd4a492e-4563-4505-93c8-c6b86487ac95"
       (reference "SW2") (unit 1) (value "WAKEUP") (footprint "TCY_buttons_switches:EVQ-P7J01P")

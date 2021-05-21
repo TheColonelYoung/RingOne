@@ -1,0 +1,466 @@
+ARM GAS  /tmp/cclgKJfM.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pin.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN3Pin6ToggleEv,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN3Pin6ToggleEv
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	_ZN3Pin6ToggleEv:
+  27              	.LVL0:
+  28              	.LFB3695:
+  29              		.file 1 "alohal/gpio/pin.cpp"
+   1:alohal/gpio/pin.cpp **** #include "pin.hpp"
+   2:alohal/gpio/pin.cpp **** 
+   3:alohal/gpio/pin.cpp **** #include "device/device.hpp"
+   4:alohal/gpio/pin.cpp **** 
+   5:alohal/gpio/pin.cpp **** Pin::Pin(char port, uint8_t pin_number):
+   6:alohal/gpio/pin.cpp ****     port(port), pin_number(pin_number){
+   7:alohal/gpio/pin.cpp ****     IRQ = new Pin_IRQ(pin_number, device()->mcu->EXT_IRQ);
+   8:alohal/gpio/pin.cpp **** }
+   9:alohal/gpio/pin.cpp **** 
+  10:alohal/gpio/pin.cpp **** void Pin::Toggle(){
+  30              		.loc 1 10 19 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 10 19 is_stmt 0 view .LVU1
+  35 0000 08B5     		push	{r3, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 3, -8
+  39              		.cfi_offset 14, -4
+  11:alohal/gpio/pin.cpp ****     HAL_GPIO_TogglePin((GPIO_TypeDef *) (PORT_START_ADRESS + ((((int) port) - ASCII_BASE) * PORT_SI
+  40              		.loc 1 11 5 is_stmt 1 view .LVU2
+  41              		.loc 1 11 71 is_stmt 0 view .LVU3
+  42 0002 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+  43              		.loc 1 11 60 view .LVU4
+  44 0004 044B     		ldr	r3, .L3
+  45 0006 1344     		add	r3, r3, r2
+  46              		.loc 1 11 123 view .LVU5
+  47 0008 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+ARM GAS  /tmp/cclgKJfM.s 			page 2
+
+
+  48              		.loc 1 11 120 view .LVU6
+  49 000a 0121     		movs	r1, #1
+  50 000c 9140     		lsls	r1, r1, r2
+  51              		.loc 1 11 23 view .LVU7
+  52 000e 89B2     		uxth	r1, r1
+  53 0010 9802     		lsls	r0, r3, #10
+  54              	.LVL1:
+  55              		.loc 1 11 23 view .LVU8
+  56 0012 FFF7FEFF 		bl	HAL_GPIO_TogglePin
+  57              	.LVL2:
+  12:alohal/gpio/pin.cpp **** }
+  58              		.loc 1 12 1 view .LVU9
+  59 0016 08BD     		pop	{r3, pc}
+  60              	.L4:
+  61              		.align	2
+  62              	.L3:
+  63 0018 BFFF1100 		.word	1179583
+  64              		.cfi_endproc
+  65              	.LFE3695:
+  67              		.section	.text._ZN3Pin3SetEb,"ax",%progbits
+  68              		.align	1
+  69              		.global	_ZN3Pin3SetEb
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  73              		.fpu fpv4-sp-d16
+  75              	_ZN3Pin3SetEb:
+  76              	.LVL3:
+  77              	.LFB3696:
+  13:alohal/gpio/pin.cpp **** 
+  14:alohal/gpio/pin.cpp **** void Pin::Set(bool value){
+  78              		.loc 1 14 26 is_stmt 1 view -0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		.loc 1 14 26 is_stmt 0 view .LVU11
+  83 0000 08B5     		push	{r3, lr}
+  84              	.LCFI1:
+  85              		.cfi_def_cfa_offset 8
+  86              		.cfi_offset 3, -8
+  87              		.cfi_offset 14, -4
+  88 0002 0A46     		mov	r2, r1
+  15:alohal/gpio/pin.cpp ****     HAL_GPIO_WritePin((GPIO_TypeDef *) (PORT_START_ADRESS + ((((int) port) - ASCII_BASE) * PORT_SIZ
+  89              		.loc 1 15 5 is_stmt 1 view .LVU12
+  90              		.loc 1 15 70 is_stmt 0 view .LVU13
+  91 0004 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+  92              	.LVL4:
+  93              		.loc 1 15 59 view .LVU14
+  94 0006 054B     		ldr	r3, .L7
+  95 0008 0B44     		add	r3, r3, r1
+  96              		.loc 1 15 122 view .LVU15
+  97 000a 4179     		ldrb	r1, [r0, #5]	@ zero_extendqisi2
+  98              		.loc 1 15 119 view .LVU16
+  99 000c 0120     		movs	r0, #1
+ 100              	.LVL5:
+ 101              		.loc 1 15 119 view .LVU17
+ 102 000e 00FA01F1 		lsl	r1, r0, r1
+ARM GAS  /tmp/cclgKJfM.s 			page 3
+
+
+ 103              		.loc 1 15 22 view .LVU18
+ 104 0012 89B2     		uxth	r1, r1
+ 105 0014 9802     		lsls	r0, r3, #10
+ 106 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 107              	.LVL6:
+  16:alohal/gpio/pin.cpp **** }
+ 108              		.loc 1 16 1 view .LVU19
+ 109 001a 08BD     		pop	{r3, pc}
+ 110              	.L8:
+ 111              		.align	2
+ 112              	.L7:
+ 113 001c BFFF1100 		.word	1179583
+ 114              		.cfi_endproc
+ 115              	.LFE3696:
+ 117              		.section	.text._ZN3Pin4ReadEv,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	_ZN3Pin4ReadEv
+ 120              		.syntax unified
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu fpv4-sp-d16
+ 125              	_ZN3Pin4ReadEv:
+ 126              	.LVL7:
+ 127              	.LFB3697:
+  17:alohal/gpio/pin.cpp **** 
+  18:alohal/gpio/pin.cpp **** bool Pin::Read(){
+ 128              		.loc 1 18 17 is_stmt 1 view -0
+ 129              		.cfi_startproc
+ 130              		@ args = 0, pretend = 0, frame = 0
+ 131              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132              		.loc 1 18 17 is_stmt 0 view .LVU21
+ 133 0000 08B5     		push	{r3, lr}
+ 134              	.LCFI2:
+ 135              		.cfi_def_cfa_offset 8
+ 136              		.cfi_offset 3, -8
+ 137              		.cfi_offset 14, -4
+  19:alohal/gpio/pin.cpp ****     return HAL_GPIO_ReadPin((GPIO_TypeDef *) (PORT_START_ADRESS + ((((int) port) - ASCII_BASE) * PO
+ 138              		.loc 1 19 5 is_stmt 1 view .LVU22
+ 139              		.loc 1 19 76 is_stmt 0 view .LVU23
+ 140 0002 0279     		ldrb	r2, [r0, #4]	@ zero_extendqisi2
+ 141              		.loc 1 19 65 view .LVU24
+ 142 0004 064B     		ldr	r3, .L11
+ 143 0006 1344     		add	r3, r3, r2
+ 144              		.loc 1 19 128 view .LVU25
+ 145 0008 4279     		ldrb	r2, [r0, #5]	@ zero_extendqisi2
+ 146              		.loc 1 19 125 view .LVU26
+ 147 000a 0121     		movs	r1, #1
+ 148 000c 9140     		lsls	r1, r1, r2
+ 149              		.loc 1 19 28 view .LVU27
+ 150 000e 89B2     		uxth	r1, r1
+ 151 0010 9802     		lsls	r0, r3, #10
+ 152              	.LVL8:
+ 153              		.loc 1 19 28 view .LVU28
+ 154 0012 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 155              	.LVL9:
+  20:alohal/gpio/pin.cpp **** }
+ 156              		.loc 1 20 1 view .LVU29
+ARM GAS  /tmp/cclgKJfM.s 			page 4
+
+
+ 157 0016 0038     		subs	r0, r0, #0
+ 158 0018 18BF     		it	ne
+ 159 001a 0120     		movne	r0, #1
+ 160 001c 08BD     		pop	{r3, pc}
+ 161              	.L12:
+ 162 001e 00BF     		.align	2
+ 163              	.L11:
+ 164 0020 BFFF1100 		.word	1179583
+ 165              		.cfi_endproc
+ 166              	.LFE3697:
+ 168              		.section	.text._ZN3PinC2Ech,"ax",%progbits
+ 169              		.align	1
+ 170              		.global	_ZN3PinC2Ech
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 174              		.fpu fpv4-sp-d16
+ 176              	_ZN3PinC2Ech:
+ 177              	.LVL10:
+ 178              	.LFB3693:
+   5:alohal/gpio/pin.cpp ****     port(port), pin_number(pin_number){
+ 179              		.loc 1 5 1 is_stmt 1 view -0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+   5:alohal/gpio/pin.cpp ****     port(port), pin_number(pin_number){
+ 183              		.loc 1 5 1 is_stmt 0 view .LVU31
+ 184 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 185              	.LCFI3:
+ 186              		.cfi_def_cfa_offset 24
+ 187              		.cfi_offset 3, -24
+ 188              		.cfi_offset 4, -20
+ 189              		.cfi_offset 5, -16
+ 190              		.cfi_offset 6, -12
+ 191              		.cfi_offset 7, -8
+ 192              		.cfi_offset 14, -4
+ 193 0002 0446     		mov	r4, r0
+ 194 0004 1546     		mov	r5, r2
+ 195              	.LBB2:
+   6:alohal/gpio/pin.cpp ****     IRQ = new Pin_IRQ(pin_number, device()->mcu->EXT_IRQ);
+ 196              		.loc 1 6 38 view .LVU32
+ 197 0006 0A4B     		ldr	r3, .L15
+ 198 0008 0360     		str	r3, [r0]
+ 199 000a 0171     		strb	r1, [r0, #4]
+ 200 000c 4271     		strb	r2, [r0, #5]
+ 201 000e 0023     		movs	r3, #0
+ 202 0010 8360     		str	r3, [r0, #8]
+   7:alohal/gpio/pin.cpp **** }
+ 203              		.loc 1 7 5 is_stmt 1 view .LVU33
+   7:alohal/gpio/pin.cpp **** }
+ 204              		.loc 1 7 41 is_stmt 0 view .LVU34
+ 205 0012 FFF7FEFF 		bl	_Z6devicev
+ 206              	.LVL11:
+   7:alohal/gpio/pin.cpp **** }
+ 207              		.loc 1 7 45 view .LVU35
+ 208 0016 0368     		ldr	r3, [r0]
+   7:alohal/gpio/pin.cpp **** }
+ARM GAS  /tmp/cclgKJfM.s 			page 5
+
+
+ 209              		.loc 1 7 50 view .LVU36
+ 210 0018 9F69     		ldr	r7, [r3, #24]
+   7:alohal/gpio/pin.cpp **** }
+ 211              		.loc 1 7 57 view .LVU37
+ 212 001a 0820     		movs	r0, #8
+ 213 001c FFF7FEFF 		bl	_Znwj
+ 214              	.LVL12:
+ 215 0020 0646     		mov	r6, r0
+ 216 0022 3A46     		mov	r2, r7
+ 217 0024 2946     		mov	r1, r5
+ 218 0026 FFF7FEFF 		bl	_ZN7Pin_IRQC1EiP17IRQ_multi_handlerIiE
+ 219              	.LVL13:
+   7:alohal/gpio/pin.cpp **** }
+ 220              		.loc 1 7 9 view .LVU38
+ 221 002a A660     		str	r6, [r4, #8]
+ 222              	.LBE2:
+   8:alohal/gpio/pin.cpp **** 
+ 223              		.loc 1 8 1 view .LVU39
+ 224 002c 2046     		mov	r0, r4
+ 225 002e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 226              	.LVL14:
+ 227              	.L16:
+   8:alohal/gpio/pin.cpp **** 
+ 228              		.loc 1 8 1 view .LVU40
+ 229              		.align	2
+ 230              	.L15:
+ 231 0030 08000000 		.word	.LANCHOR0+8
+ 232              		.cfi_endproc
+ 233              	.LFE3693:
+ 235              		.global	_ZN3PinC1Ech
+ 236              		.thumb_set _ZN3PinC1Ech,_ZN3PinC2Ech
+ 237              		.section	.text._ZN3PineqERKS_,"ax",%progbits
+ 238              		.align	1
+ 239              		.global	_ZN3PineqERKS_
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ 243              		.fpu fpv4-sp-d16
+ 245              	_ZN3PineqERKS_:
+ 246              	.LVL15:
+ 247              	.LFB3698:
+  21:alohal/gpio/pin.cpp **** 
+  22:alohal/gpio/pin.cpp **** bool Pin::operator == (const Pin& rhs){
+ 248              		.loc 1 22 39 is_stmt 1 view -0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 0
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252              		@ link register save eliminated.
+  23:alohal/gpio/pin.cpp ****     return ((this->port == rhs.port) && (this->pin_number == rhs.pin_number));
+ 253              		.loc 1 23 5 view .LVU42
+ 254              		.loc 1 23 38 is_stmt 0 view .LVU43
+ 255 0000 8088     		ldrh	r0, [r0, #4]
+ 256              	.LVL16:
+ 257              		.loc 1 23 38 view .LVU44
+ 258 0002 8B88     		ldrh	r3, [r1, #4]
+  24:alohal/gpio/pin.cpp **** }
+ 259              		.loc 1 24 1 view .LVU45
+ARM GAS  /tmp/cclgKJfM.s 			page 6
+
+
+ 260 0004 9842     		cmp	r0, r3
+ 261 0006 14BF     		ite	ne
+ 262 0008 0020     		movne	r0, #0
+ 263 000a 0120     		moveq	r0, #1
+ 264 000c 7047     		bx	lr
+ 265              		.cfi_endproc
+ 266              	.LFE3698:
+ 268              		.global	_ZTS3Pin
+ 269              		.global	_ZTI3Pin
+ 270              		.global	_ZTV3Pin
+ 271              		.section	.rodata._ZTI3Pin,"a"
+ 272              		.align	2
+ 275              	_ZTI3Pin:
+ 276 0000 08000000 		.word	_ZTVN10__cxxabiv117__class_type_infoE+8
+ 277 0004 00000000 		.word	_ZTS3Pin
+ 278              		.section	.rodata._ZTS3Pin,"a"
+ 279              		.align	2
+ 282              	_ZTS3Pin:
+ 283 0000 3350696E 		.ascii	"3Pin\000"
+ 283      00
+ 284              		.section	.rodata._ZTV3Pin,"a"
+ 285              		.align	2
+ 286              		.set	.LANCHOR0,. + 0
+ 289              	_ZTV3Pin:
+ 290 0000 00000000 		.word	0
+ 291 0004 00000000 		.word	_ZTI3Pin
+ 292 0008 00000000 		.word	_ZN3Pin6ToggleEv
+ 293 000c 00000000 		.word	_ZN3Pin3SetEb
+ 294 0010 00000000 		.word	_ZN3Pin4ReadEv
+ 295              		.text
+ 296              	.Letext0:
+ 297              		.file 2 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/machine/_default_types.h"
+ 298              		.file 3 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/sys/_stdint.h"
+ 299              		.file 4 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/stdint.h"
+ 300              		.file 5 "Drivers/CMSIS/Include/core_cm4.h"
+ 301              		.file 6 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32l4xx.h"
+ 302              		.file 7 "Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l452xx.h"
+ 303              		.file 8 "/opt/gcc-arm-none-eabi-9-2020-q2/lib/gcc/arm-none-eabi/9.3.1/include/stddef.h"
+ 304              		.file 9 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 305              		.file 10 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 306              		.file 11 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 307              		.file 12 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h"
+ 308              		.file 13 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_tim.h"
+ 309              		.file 14 "Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 310              		.file 15 "alohal/globals.hpp"
+ 311              		.file 16 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/basic_string.h"
+ 312              		.file 17 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/type_traits"
+ 313              		.file 18 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e
+ 314              		.file 19 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_pair.h"
+ 315              		.file 20 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/debug/debug.h"
+ 316              		.file 21 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/cwchar"
+ 317              		.file 22 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/char_traits.h"
+ 318              		.file 23 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/cstdint"
+ 319              		.file 24 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/exception_ptr.h"
+ 320              		.file 25 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/new"
+ 321              		.file 26 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/allocator.h"
+ 322              		.file 27 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/clocale"
+ARM GAS  /tmp/cclgKJfM.s 			page 7
+
+
+ 323              		.file 28 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/limits"
+ 324              		.file 29 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/string_view"
+ 325              		.file 30 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/cstdlib"
+ 326              		.file 31 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/cstdio"
+ 327              		.file 32 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/alloc_traits.h"
+ 328              		.file 33 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/initializer_list"
+ 329              		.file 34 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stringfwd.h"
+ 330              		.file 35 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/utility"
+ 331              		.file 36 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/uses_allocator.h"
+ 332              		.file 37 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/tuple"
+ 333              		.file 38 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_vector.h"
+ 334              		.file 39 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/vector.tcc"
+ 335              		.file 40 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator_base_
+ 336              		.file 41 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/cpp_type_traits.h"
+ 337              		.file 42 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/algorithmfwd.h"
+ 338              		.file 43 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/optional"
+ 339              		.file 44 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_function.h"
+ 340              		.file 45 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/functional"
+ 341              		.file 46 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/std_abs.h"
+ 342              		.file 47 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_tree.h"
+ 343              		.file 48 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_map.h"
+ 344              		.file 49 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/predefined_ops.h"
+ 345              		.file 50 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/ext/new_allocator.h"
+ 346              		.file 51 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/ext/numeric_traits.h"
+ 347              		.file 52 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/ext/alloc_traits.h"
+ 348              		.file 53 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/bits/stl_iterator.h"
+ 349              		.file 54 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/sys/_types.h"
+ 350              		.file 55 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/sys/reent.h"
+ 351              		.file 56 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/sys/lock.h"
+ 352              		.file 57 "/opt/gcc-arm-none-eabi-9-2020-q2/lib/gcc/arm-none-eabi/9.3.1/include/stdarg.h"
+ 353              		.file 58 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/wchar.h"
+ 354              		.file 59 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/locale.h"
+ 355              		.file 60 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/ctype.h"
+ 356              		.file 61 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/stdlib.h"
+ 357              		.file 62 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/stdio.h"
+ 358              		.file 63 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/sys/errno.h"
+ 359              		.file 64 "alohal/irq/irq_handler.hpp"
+ 360              		.file 65 "alohal/irq/irq_observer.hpp"
+ 361              		.file 66 "alohal/irq/irq_multi_handler.hpp"
+ 362              		.file 67 "alohal/gpio/pin_irq.hpp"
+ 363              		.file 68 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/pstl/execution_defs.h"
+ 364              		.file 69 "alohal/uart/serial_line.hpp"
+ 365              		.file 70 "/opt/gcc-arm-none-eabi-9-2020-q2/arm-none-eabi/include/c++/9.3.1/stdlib.h"
+ 366              		.file 71 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 367              		.file 72 "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h"
+ 368              		.file 73 "Inc/usbd_cdc_if.h"
+ 369              		.file 74 "alohal/usb/cdc_vcp.hpp"
+ 370              		.file 75 "alohal/mcu/configuration/externs.hpp"
+ 371              		.file 76 "alohal/timer/TIM_channel.hpp"
+ 372              		.file 77 "alohal/timer/timer.hpp"
+ 373              		.file 78 "alohal/mcu/mcu.hpp"
+ 374              		.file 79 "alohal/cli/command.hpp"
+ 375              		.file 80 "alohal/cli/history.hpp"
+ 376              		.file 81 "alohal/cli/cli.hpp"
+ 377              		.file 82 "alohal/filesystem/filesystem.hpp"
+ 378              		.file 83 "alohal/filesystem/entry.hpp"
+ 379              		.file 84 "alohal/filesystem/directory.hpp"
+ARM GAS  /tmp/cclgKJfM.s 			page 8
+
+
+ 380              		.file 85 "alohal/filesystem/executable.hpp"
+ 381              		.file 86 "alohal/filesystem/file.hpp"
+ 382              		.file 87 "alohal/misc/text_transform.hpp"
+ 383              		.file 88 "alohal/events/planner/planner_phase.hpp"
+ 384              		.file 89 "alohal/events/planner/planner.hpp"
+ 385              		.file 90 "alohal/device/device.hpp"
+ 386              		.file 91 "alohal/gpio/pin.hpp"
+ 387              		.file 92 "<built-in>"
+ARM GAS  /tmp/cclgKJfM.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 pin.cpp
+     /tmp/cclgKJfM.s:18     .text._ZN3Pin6ToggleEv:0000000000000000 $t
+     /tmp/cclgKJfM.s:26     .text._ZN3Pin6ToggleEv:0000000000000000 _ZN3Pin6ToggleEv
+     /tmp/cclgKJfM.s:63     .text._ZN3Pin6ToggleEv:0000000000000018 $d
+     /tmp/cclgKJfM.s:68     .text._ZN3Pin3SetEb:0000000000000000 $t
+     /tmp/cclgKJfM.s:75     .text._ZN3Pin3SetEb:0000000000000000 _ZN3Pin3SetEb
+     /tmp/cclgKJfM.s:113    .text._ZN3Pin3SetEb:000000000000001c $d
+     /tmp/cclgKJfM.s:118    .text._ZN3Pin4ReadEv:0000000000000000 $t
+     /tmp/cclgKJfM.s:125    .text._ZN3Pin4ReadEv:0000000000000000 _ZN3Pin4ReadEv
+     /tmp/cclgKJfM.s:164    .text._ZN3Pin4ReadEv:0000000000000020 $d
+     /tmp/cclgKJfM.s:169    .text._ZN3PinC2Ech:0000000000000000 $t
+     /tmp/cclgKJfM.s:176    .text._ZN3PinC2Ech:0000000000000000 _ZN3PinC2Ech
+     /tmp/cclgKJfM.s:231    .text._ZN3PinC2Ech:0000000000000030 $d
+     /tmp/cclgKJfM.s:176    .text._ZN3PinC2Ech:0000000000000000 _ZN3PinC1Ech
+     /tmp/cclgKJfM.s:238    .text._ZN3PineqERKS_:0000000000000000 $t
+     /tmp/cclgKJfM.s:245    .text._ZN3PineqERKS_:0000000000000000 _ZN3PineqERKS_
+     /tmp/cclgKJfM.s:282    .rodata._ZTS3Pin:0000000000000000 _ZTS3Pin
+     /tmp/cclgKJfM.s:275    .rodata._ZTI3Pin:0000000000000000 _ZTI3Pin
+     /tmp/cclgKJfM.s:289    .rodata._ZTV3Pin:0000000000000000 _ZTV3Pin
+     /tmp/cclgKJfM.s:272    .rodata._ZTI3Pin:0000000000000000 $d
+     /tmp/cclgKJfM.s:279    .rodata._ZTS3Pin:0000000000000000 $d
+     /tmp/cclgKJfM.s:285    .rodata._ZTV3Pin:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_TogglePin
+HAL_GPIO_WritePin
+HAL_GPIO_ReadPin
+_Z6devicev
+_Znwj
+_ZN7Pin_IRQC1EiP17IRQ_multi_handlerIiE
+_ZTVN10__cxxabiv117__class_type_infoE

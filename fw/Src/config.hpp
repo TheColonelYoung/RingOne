@@ -13,7 +13,6 @@
 #pragma once
 
 
-
 // #define ADC_1_EN
 // #define ADC_2_EN
 // #define ADC_3_EN
@@ -21,6 +20,8 @@
 // #define DAC_1_EN
 
 #define USB_CDC_EN
+
+#define I_WDG_EN
 
 // #define UART_1_EN
 // #define UART_2_EN
@@ -44,7 +45,7 @@
 // #define TIM_15_EN
 // #define TIM_16_EN
 
-//#define I2C_1_EN
+#define I2C_1_EN
 //#define I2C_2_EN
 //#define I2C_3_EN
 //#define I2C_4_EN

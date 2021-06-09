@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceRoot}",
+            "executable": "${workspaceRoot}/fw/build/RingOne.elf",
+            "name": "GDB + OpenOCD",
+            "device": "STM32L452",
+            "configFiles": [
+                "interface/stlink.cfg",
+                "target/stm32l4x.cfg"
+            ]
+        }
+    ]
+}

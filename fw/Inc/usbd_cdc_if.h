@@ -31,7 +31,8 @@
 #include "usbd_cdc.h"
 
 /* USER CODE BEGIN INCLUDE */
-
+extern void USB_VCP_RX_Callback(uint8_t* Buf, uint32_t Len);
+extern void USB_VCP_TX_Callback();
 /* USER CODE END INCLUDE */
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY

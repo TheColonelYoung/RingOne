@@ -15,3 +15,11 @@
     - Voltage produced by Schmitt trigger is equal to VCC (USB VCC - up to 5V), zener diode has rating of 3.3V
     - Zener diode will be open after power is enabled by power switch
     - Consequences: Zener diode damage, possible damage of Schmitt trigger
+
+- Switched SCL a SDA lines to USB controller
+    - Consequences: MCU cannot communicate with STUSB1600
+    - Solution: cut and rewire traces 
+
+- Layout of LED diode is incorrect
+    - Consequences: Diode will not light up
+    - Solution: turn diode by 90°, soldering will not be easy but is possible

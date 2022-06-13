@@ -28,6 +28,8 @@
 // #define UART_3_EN
 // #define UART_4_EN
 
+#define LPUART_1_EN
+
 // #define TIM_1_EN
 #define TIM_2_EN
 // #define TIM_3_EN
@@ -51,7 +53,7 @@
 //#define I2C_4_EN
 
 //#define SPI_1_EN
-//#define SPI_2_EN
+#define SPI_2_EN
 //#define SPI_3_EN
 //#define SPI_4_EN
 
